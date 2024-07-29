@@ -1,0 +1,30 @@
+/* Đặt lưới ảnh với CSS Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px; /* Khoảng cách giữa các ảnh */
+  padding: 10px;
+}
+
+/* Tạo hiệu ứng cho từng item ảnh */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px; /* Bo góc ảnh */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tạo bóng cho ảnh */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thay đổi hiệu ứng khi hover */
+}
+
+/* Đảm bảo ảnh không bị biến dạng và chiếm toàn bộ không gian của phần tử chứa nó */
+.gallery-item img {
+  display: block;
+  width: 100%; /* Kích thước ảnh chiếm toàn bộ chiều rộng của phần tử chứa */
+  height: auto; /* Giữ tỷ lệ ảnh */
+  object-fit: cover; /* Đảm bảo ảnh phủ đầy phần tử mà không bị biến dạng */
+  border-radius: 8px; /* Bo góc ảnh để phù hợp với container */
+}
+
+/* Hiệu ứng hover cho ảnh */
+.gallery-item:hover {
+  transform: scale(1.05); /* Phóng to ảnh khi hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Tăng bóng khi hover */
+}
