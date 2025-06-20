@@ -8,9 +8,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="music/birthday.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgm" loop>
+  <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Khi người dùng click bất kỳ đâu trên trang, phát nhạc
+  const audio = document.getElementById('bgm');
+  const playOnce = () => {
+    audio.play().catch(e => {
+      console.warn("Trình duyệt chặn autoplay:", e);
+    });
+    document.removeEventListener('click', playOnce); // chỉ phát một lần
+  };
+
+  document.addEventListener('click', playOnce);
+</script>
 
   <div class="container">
     <h1>🎉 Chúc mừng sinh nhật vợ yêu của anh! 🎂</h1>
